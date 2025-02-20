@@ -100,7 +100,7 @@ graph LR
 Create the security group and tag it with the name "LabSecurityGroup". 
 
 ```bash
-SECURITY_GROUP_ID=$(aws ec2 create-security-group --group-name LabSecurityGroup --description "Security group for AWS CLI lab" --vpc-id $(aws ec2 describe-vpcs --query 'Vpcs[0].VpcId' --output text) --output text)
+SECURITY_GROUP_ID=$(aws ec2 create-security-group --group-name LabSecurityGroup --description "Security group for AWS CLI lab" --query 'GroupId' --output text)
 ```
 
 Then, tag the security group:
