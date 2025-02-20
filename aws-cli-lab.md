@@ -495,12 +495,12 @@ aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID
 </details>
 
 ### 8.4 Delete the Key Pair (Optional)
-Delete the Key stored on AWS:
+Delete the key stored on AWS:
 
 ```bash
 aws ec2 delete-key-pair --key-name LabKeyPair
 ```
-Delete the key store on your cloudshell instance:
+Delete the key stored on your cloudshell instance:
 
 ```bash
 rm  LabKeyPair.pem
