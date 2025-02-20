@@ -1,6 +1,6 @@
 # AWS CLI Introduction Lab (Using CloudShell)
 
-This lab introduces you to the Amazon Web Services (AWS) Command Line Interface (CLI), a powerful tool for managing your AWS resources. You'll learn how to create and configure an EC2 instance, assign a key pair, manage security groups, allocate an Elastic IP, and connect to your instance. All resources will be tagged with clear names (like "LabInstance" for your EC2 instance) to help you easily distinguish them in your AWS Console.
+This lab introduces you to the Amazon Web Services (AWS) Command Line Interface (CLI), a powerful tool for managing your AWS resources. You'll learn how to create and configure an EC2 instance, assign[...]
 
 ---
 
@@ -22,8 +22,8 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 ### 1.1 Accessing AWS CloudShell
 
 1. **Log in to the AWS Management Console:**
-2. **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window). This will open a terminal window within your browser. Alternatively, you can find CloudShell under the AWS Services menu.
-3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once initialization is complete.
+2. **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window). This will open a terminal window within your browser. Alternatively, you can find [...]
+3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once[...]
 
 ---
 
@@ -247,26 +247,15 @@ graph LR
 Find the correct AMI ID for Amazon Linux 2023 in your chosen region using this command:
 
 ```bash
-aws ec2 describe-images --owners amazon --filters "Name=name,Values=al2023-ami-2023*-x86_64" "Name=state,Values=available" --query 'Images[*].[ImageId,Name,CreationDate]' --output text | sort -k3 -r | head -n 1
+AMI_ID=$(aws ec2 describe-images --owners amazon --filters "Name=name,Values=al2023-ami-2023*-x86_64" "Name=state,Values=available" --query 'Images[*].[ImageId]' --output text | sort -k1 -r | head -n 1)
 ```
-
-<details>
-<summary>Expected Output (Example - Your AMI ID will differ)</summary>
-
-```
-ami-0abcdef1234567890	al2023-ami-2023.2.20231218.0-kernel-6.1-x86_64	2023-12-19T02:15:05.000Z
-```
-
-</details>
-
-Copy the AMI ID (e.g., `ami-0abcdef1234567890`) from the output for the next step.
 
 ### 5.2 Launch the Instance
 Launch the instance while tagging it with the name "LabInstance":
 
 ```bash
 INSTANCE_ID=$(aws ec2 run-instances \
-    --image-id <YOUR_AMI_ID> \
+    --image-id $AMI_ID \
     --instance-type t2.micro \
     --security-group-ids $SECURITY_GROUP_ID \
     --key-name LabKeyPair \
@@ -275,8 +264,6 @@ INSTANCE_ID=$(aws ec2 run-instances \
     --query 'Instances[0].InstanceId' \
     --output text)
 ```
-
-Replace `<YOUR_AMI_ID>` with the AMI ID you obtained.
 
 Copy the Instance ID (e.g., `i-0123456789abcdef0`) for later steps.
 
@@ -395,10 +382,10 @@ chmod 400 LabKeyPair.pem
 Connect using SSH:
 
 ```bash
-ssh -i LabKeyPair.pem ec2-user@<YOUR_ELASTIC_IP>
+ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@$ELASTIC_IP
 ```
 
-Replace `<YOUR_ELASTIC_IP>` with your allocated Elastic IP address.
+Replace `$ELASTIC_IP` with your allocated Elastic IP address.
 
 *First-time connection:* When prompted, type `yes` to add the host to your known hosts.
 
@@ -406,7 +393,7 @@ Replace `<YOUR_ELASTIC_IP>` with your allocated Elastic IP address.
 <summary>Example Connection and Output</summary>
 
 ```bash
-ssh -i LabKeyPair.pem ec2-user@3.14.159.265
+ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@3.14.159.265
 The authenticity of host '3.14.159.265 (3.14.159.265)' can't be established.
 ED25519 key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
 This key is not known by any other names.
@@ -531,5 +518,3 @@ aws ec2 delete-key-pair --key-name LabKeyPair
 These steps ensure that you have cleaned all the resources created during this lab.
 
 ---
-
-End of Lab
