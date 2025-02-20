@@ -18,14 +18,9 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 
 ## 1. Prerequisites and Accessing CloudShell
 
-### 1.1 AWS Account
+### 1.1 Accessing AWS CloudShell
 
-*   You'll need an active AWS account.  If you don't have one, sign up for the AWS Free Tier: [https://aws.amazon.com/free/](https://aws.amazon.com/free/)
-*   **Important:** Be mindful of AWS charges.  While the Free Tier covers many resources, exceeding usage limits or using non-Free Tier services will incur costs.  Always clean up resources after the lab.
-
-### 1.2 Accessing AWS CloudShell
-
-1.  **Log in to the AWS Management Console:** Go to [https://console.aws.amazon.com/](https://console.aws.amazon.com/) and log in with your AWS account credentials.
+1.  **Log in to the AWS Management Console:**
 2.  **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window).  This will open a terminal window within your browser.  Alternatively, you can search for "CloudShell" in the search bar and select it.
 
     ![CloudShell Icon](https://i.imgur.com/lGqjU9n.png)  *(Image of CloudShell Icon)*
