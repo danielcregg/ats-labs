@@ -14,6 +14,7 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 6.  [Allocating and Associating an Elastic IP](#6-allocating-and-associating-an-elastic-ip)
 7.  [Connecting to Your Instance](#7-connecting-to-your-instance)
 8.  [Clean Up (Important!)](#8-clean-up-important)
+9.  [Automated Script Creation via AI](#9-automated-script-creation-via-ai)
 
 ---
 
@@ -527,5 +528,9 @@ Using the content of lab, create two AWS scripts. One script will create the new
 ### 9.2 Save the scripts to your CloudShell instance
 
 Use nano to help create two new bash file to hold your new scripts. Run the following permissions command to make the files executable
+
+```bash
+chmod 777 aws_script_make.sh
+```
 
 ---
