@@ -380,10 +380,6 @@ Connect using SSH:
 ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@$ELASTIC_IP
 ```
 
-Replace `$ELASTIC_IP` with your allocated Elastic IP address.
-
-*First-time connection:* When prompted, type `yes` to add the host to your known hosts.
-
 <details>
 <summary>Example Connection and Output</summary>
 
@@ -499,10 +495,15 @@ aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID
 </details>
 
 ### 8.4 Delete the Key Pair (Optional)
-If desired, delete the key pair:
+Delete the Key stored on AWS:
 
 ```bash
 aws ec2 delete-key-pair --key-name LabKeyPair
+```
+Delete the key store on your cloudshell instance:
+
+```bash
+rm  LabKeyPair.pem
 ```
 
 ### 8.5 Confirm Deletion (DIY Task)
