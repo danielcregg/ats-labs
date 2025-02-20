@@ -87,10 +87,10 @@ A security group acts as a virtual firewall for your EC2 instances, controlling 
 graph LR
     A[Internet] --> B(Security Group)
     B --> C[EC2 Instance]
-    B --> D[Rule 1: Port 22 (SSH/SFTP)]
-    B --> E[Rule 2: Port 80 (HTTP)]
-    B --> F[Rule 3: Port 443 (HTTPS)]
-    B --> G[Rule 4: Port 3389 (RDP)]
+    B --> D["Rule 1: Port 22 (SSH/SFTP)"]
+    B --> E["Rule 2: Port 80 (HTTP)"]
+    B --> F["Rule 3: Port 443 (HTTPS)"]
+    B --> G["Rule 4: Port 3389 (RDP)"]
 ```
 
 ### 3.1 Create the Security Group
