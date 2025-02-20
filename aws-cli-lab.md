@@ -21,10 +21,7 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 ### 1.1 Accessing AWS CloudShell
 
 1.  **Log in to the AWS Management Console:**
-2.  **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window).  This will open a terminal window within your browser.  Alternatively, you can search for "CloudShell" in the search bar and select it.
-
-    ![CloudShell Icon](https://i.imgur.com/lGqjU9n.png)  *(Image of CloudShell Icon)*
-
+2.  **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window).  This will open a terminal window within your browser.  Alternatively, you can search for "CloudShell" in the search bar and select it.  
 3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once it's ready.
 
 ---
@@ -32,7 +29,7 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 ## 2. AWS CLI Introduction
 
 ### Concept Introduction
-AWS CloudShell comes with the AWS CLI pre-installed and pre-authenticated. This means you can start using the CLI immediately without needing to configure credentials. CloudShell automatically uses the credentials of the IAM user you used to log in to the AWS Management Console.
+AWS CloudShell comes with the AWS CLI pre-installed and pre-authenticated. This means you can start using the CLI immediately without needing to configure credentials.
 
 ```mermaid
 graph LR
