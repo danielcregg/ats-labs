@@ -1,6 +1,6 @@
 # AWS CLI Introduction Lab (Using CloudShell)
 
-This lab introduces you to the Amazon Web Services (AWS) Command Line Interface (CLI), a powerful tool for managing your AWS resources. You'll learn how to create and configure an EC2 instance, assign[...]
+This lab introduces you to the Amazon Web Services (AWS) Command Line Interface (CLI), a powerful tool for managing your AWS resources. You'll learn how to create and configure an EC2 instance, assign Security Groups, and manage Key Pairs. By the end of this lab, you will have a running EC2 instance that you can connect to via SSH.
 
 ---
 
@@ -22,8 +22,8 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 ### 1.1 Accessing AWS CloudShell
 
 1. **Log in to the AWS Management Console:**
-2. **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window). This will open a terminal window within your browser. Alternatively, you can find [...]
-3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once[...]
+2. **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window). This will open a terminal window within your browser. Alternatively, you can find CloudShell under the "Services" menu by searching for "CloudShell".
+3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once CloudShell is ready.
 
 ---
 
