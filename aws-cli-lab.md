@@ -278,15 +278,6 @@ INSTANCE_ID=$(aws ec2 run-instances \
 
 Replace `<YOUR_AMI_ID>` with the AMI ID you obtained.
 
-<details>
-<summary>Expected Output (Example - Instance ID will differ)</summary>
-
-```
-i-0123456789abcdef0
-```
-
-</details>
-
 Copy the Instance ID (e.g., `i-0123456789abcdef0`) for later steps.
 
 ---
