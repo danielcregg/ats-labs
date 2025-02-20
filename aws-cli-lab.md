@@ -109,8 +109,6 @@ Then, tag the security group:
 aws ec2 create-tags --resources $SECURITY_GROUP_ID --tags Key=Name,Value=LabSecurityGroup
 ```
 
-*Take note of the output `SECURITY_GROUP_ID` for later use.*
-
 ### 3.2 Add Inbound Rules
 Add rules to allow SSH (port 22), RDP (port 3389), HTTP (port 80), and HTTPS (port 443) traffic.
 
