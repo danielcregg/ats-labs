@@ -116,9 +116,6 @@ Add rules to allow SSH (port 22), RDP (port 3389), HTTP (port 80), and HTTPS (po
 # SSH and SFTP
 aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID --protocol tcp --port 22 --cidr 0.0.0.0/0
 
-# RDP
-aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID --protocol tcp --port 3389 --cidr 0.0.0.0/0
-
 # HTTP
 aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID --protocol tcp --port 80 --cidr 0.0.0.0/0
 
