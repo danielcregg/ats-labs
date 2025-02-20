@@ -513,4 +513,19 @@ rm  LabKeyPair.pem
 
 These steps ensure that you have cleaned all the resources created during this lab.
 
+## 9. Automated Script Creation via AI
+
+Use an AI chat service to create two automated AWS scripts from the content in this lab. One script will create the new instnace and the other will delete it and its resources. 
+
+### 9.1 Write the prompt
+
+Create a prompt to generate the two scripts. 
+```txt
+Using the content of lab, create two AWS scripts. One script will create the new EC2 instance and the other will delete the instance and associated resources
+```
+
+### 9.2 Save the scripts to your CloudShell instance
+
+Use nano to help create two new bash file to hold your new scripts. Run the following permissions command to make the files executable
+
 ---
