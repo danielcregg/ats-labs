@@ -487,17 +487,17 @@ aws ec2 terminate-instances --instance-ids $INSTANCE_ID
 First, disassociate it from the instance (if still associated):
 
 ```bash
-# Find the AllocationId using the Elastic IP and disassociate if needed
-ALLOCATION_ID=$(aws ec2 describe-addresses --filters "Name=public-ip,Values:<YOUR_ELASTIC_IP>" --query 'Addresses[0].AllocationId' --output text)
+# Find the AllocationId using the tag and disassociate if needed
+ALLOCATION_ID=$(aws ec2 describe-addresses --filters "Name=tag:Name,Values=LabElasticIP" --query 'Addresses[0].AllocationId' --output text)
 
 if [ ! -z "$ALLOCATION_ID" ]; then
-  ASSOCIATION_ID=$(aws ec2 describe-addresses --filters "Name=public-ip,Values:<YOUR_ELASTIC_IP>" --query 'Addresses[0].AssociationId' --output text)
+  ASSOCIATION_ID=$(aws ec2 describe-addresses --filters "Name=allocation-id,Values=$ALLOCATION_ID" --query 'Addresses[0].AssociationId' --output text)
     if [ ! -z "$ASSOCIATION_ID" ]; then
       aws ec2 disassociate-address --association-id $ASSOCIATION_ID
     fi
   aws ec2 release-address --allocation-id $ALLOCATION_ID
 else
-  echo "Elastic IP <YOUR_ELASTIC_IP> not found or not allocated."
+  echo "Elastic IP with tag LabElasticIP not found or not allocated."
 fi
 ```
 
