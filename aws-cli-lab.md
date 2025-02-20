@@ -501,8 +501,6 @@ else
 fi
 ```
 
-Replace `<YOUR_ELASTIC_IP>` with your actual Elastic IP.
-
 ### 8.3 Delete the Security Group
 
 ```bash
