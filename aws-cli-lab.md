@@ -408,10 +408,10 @@ Now that your instance is running and has an Elastic IP, you can connect to it u
 
 ```mermaid
 graph LR
-    A[Your Computer] --> B[SSH Client]
-    B --> C(Elastic IP)
-    C --> D[EC2 Instance (Port 22)]
-    B --> E[Private Key (.pem)]
+    A["Your Computer"] --> B["SSH Client"]
+    B --> C["Elastic IP"]
+    C --> D["EC2 Instance - Port 22"]
+    B --> E["Private Key (.pem)"]
 ```
 
 ### 6.1 Connect via SSH (from CloudShell)
