@@ -27,7 +27,6 @@ graph TD
 ### Using AWS Certificate Manager (ACM)
 
 - Choose **"Request a certificate"** if you want AWS to manage your certificate automatically.
-- Choose **"Import a certificate"** if you already have a third-party SSL/TLS certificate.
 
 1. **Navigate to AWS Certificate Manager**:
     - Go to the AWS Management Console and select the AWS Certificate Manager service.
