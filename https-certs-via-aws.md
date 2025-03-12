@@ -30,7 +30,7 @@ graph TD
 
 1. **Navigate to AWS Certificate Manager**:
     - Go to the AWS Management Console and select the AWS Certificate Manager service.
-2. **Request or Import Certificate**:
+2. **Request Certificate**:
     - Follow the wizard to request or import a certificate for your domain.
 3. **Validate Domain Ownership**:
     - Use email validation or DNS validation to prove domain ownership.
