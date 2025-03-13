@@ -152,3 +152,54 @@ Use AWS CloudWatch for monitoring load balancer logs for errors or unusual patte
 Automate tasks like creating load balancers and target groups using AWS CLI commands.
 - **Security Best Practices**
 Regularly review security group configurations ensuring least privilege principles.
+
+### Total Diagram
+```mermaid
+graph TD
+    subgraph Network
+        A[Route 53: randombusiness.tech]
+        B(ALB: lbWebServerAuto)
+        C[Target Group: tgWebServerAuto]
+        D[EC2: i-08fb9e9d4c0942919]
+        E[Subnet: subnet-0cd45c604f6f58fb5]
+        F[VPC: vpc-0374a1190f97be0bb]
+    end
+
+    subgraph EC2 Details
+        G[Security Group: sg-0131f23946eee7c17]
+        H[Volume: vol-0fab069ef36f9214b]
+        I[AZ: eu-west-1c]
+        J[Elastic IP: 52.17.129.222]
+        K[Allocation ID: eipalloc-0592ddb091a156c2d]
+        L[Association ID: eipassoc-0ecd16a5723227a2f]
+        M[Network Interface: eni-03ffefd818b8e6f06]
+        N[Tag: elasticIPWebServerAuto]
+    end
+
+    subgraph Target Group Config
+        O[Health Check: /]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    D --> G
+    D --> H
+    D --> I
+    J --> D
+    J --> K
+    J --> L
+    J --> M
+    J --> N
+    O --> C
+    A --> P[www.randombusiness.tech]
+    P --> B
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+    style C fill:#cfc,stroke:#333,stroke-width:2px
+    style D fill:#ffc,stroke:#333,stroke-width:2px
+    style J fill:#eee,stroke:#333,stroke-width:2px
+```
