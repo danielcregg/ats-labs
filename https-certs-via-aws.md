@@ -17,8 +17,7 @@ graph TD
 
 ## Prerequisites
 
-- An AWS account with access to EC2, Elastic Load Balancing, Route 53, and AWS Certificate Manager.
-- An existing EC2 instance running a web server (e.g., Apache or Nginx).
+- An existing EC2 instance running a web server.
 - A registered domain name.
 
 
