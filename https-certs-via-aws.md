@@ -1,5 +1,21 @@
 # Lab: Adding HTTPS Certificates via Load Balancer and Targets to EC2 Instance
 
+## Table of Contents
+
+[Objective](#objective)  
+[Architecture Overview](#architecture-overview)  
+[Prerequisites](#prerequisites)  
+[Step 1: Obtain an SSL/TLS Certificate](#step-1-obtain-an-ssltls-certificate)  
+[Step 2: Create a Target Group](#step-2-create-a-target-group)  
+[Step 3: Create an Application Load Balancer](#step-3-create-an-application-load-balancer)  
+[Step 4: Configure Security Groups](#step-4-configure-security-groups)  
+[Step 5: Update A Records in Hosted Zone](#step-5-update-a-records-in-hosted-zone)  
+[Step 6: Test Your Setup](#step-6-test-your-setup)  
+[Step 7: Update WordPress Configuration (If Applicable)](#step-7-update-wordpress-configuration-if-applicable)  
+[Conclusion](#conclusion)  
+[Additional Tips](#additional-tips)  
+[Total Diagram](#total-diagram)  
+
 ## Objective
 Configure an AWS Application Load Balancer with HTTPS certificates and targets to serve an EC2 instance hosting a web application.
 
