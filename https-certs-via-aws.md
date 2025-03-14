@@ -129,10 +129,10 @@ Ssh into your instance:
 ```bash
 ssh vm
 ```
-Issue the following WordPress CLI commands to change the URLs:
+Replace "example.com" with your Domain name in the commands below. Then run these WordPress CLI commands to change the URLs:
 ```bash
-wp option update siteurl 'http://example.com'  --path=/var/www/html/
-wp option update home 'http://example.com' --path=/var/www/html/ 
+wp option update siteurl 'https://example.com'  --path=/var/www/html/
+wp option update home 'https://example.com' --path=/var/www/html/ 
 ```
 
 ## Step 7: Test Your Setup
