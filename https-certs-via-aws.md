@@ -37,6 +37,7 @@ graph TD
 - A registered domain name.
 
 Go to route 53 and create hosted zone for your domain name e.g. example.com
+Go to your Domain Name Provider website and change the DNS servers to the ones provided by AWS in your newly created Hosted Zone
 
 ## Step 1: Obtain an SSL/TLS Certificate
 
