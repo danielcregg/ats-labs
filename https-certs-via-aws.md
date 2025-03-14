@@ -99,9 +99,14 @@ You will have two separate security groups: one for your EC2 instance and one fo
     - Create an HTTPS listener on port `443`.
     - Forward traffic to your target group.
     - Select your certificate from AWS Certificate Manager.
-3. **Add HTTP Listener (Optional)**:
-    - Create an HTTP listener on port `80`.
-    - Add a rule to redirect all traffic from port `80` (HTTP) to port `443` (HTTPS).
+3. **Redirect HTTP to HTTPS**:
+    - Find Listners and Rules
+    - Click on the rule for HTTP:80
+    - Select the rule under Listner Rules
+    - Go to Actions and select Edit rule
+    - Select Redirect to URL.
+    - Beside HTTPS enter Port 443 and click Save changes.
+      
 4. **Select Availability Zones**:
     - Ensure the load balancer is enabled in the same Availability Zone as your EC2 instance.
 
