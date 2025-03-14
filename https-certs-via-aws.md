@@ -57,7 +57,7 @@ Go to your Domain Name Provider website and change the DNS servers to the ones p
     - The certificate status will be `Pending validtion`.
     - To get your Certificate approved, click on the `Create records in Route 53` button.
     - Select your Domain name and click on the `Create records` button. A CNAME record will be added to youe Hosted Zone and this will validate your certificate. 
-    - Wait 5 minutes for your Certificate Status to change to `Issued`
+    - Wait 5 minutes for your Certificate Status to change to `Issued`.
 
 ## Step 2: Create a Target Group
 
@@ -68,40 +68,42 @@ Go to your Domain Name Provider website and change the DNS servers to the ones p
     - Choose "Instances" as the target type.
     - Enter the Target group name as `tgWebServerAuto`.
     - The protocol port should be set to HTTP and port to 80.
-    - Leave all other settings as default values and click on the Next button. 
-3. **Configure Health Checks**:
-    - Health check protocol: HTTP
-    - Path: `/` (or any path returning HTTP status code `200`)
-    - Interval: `30 seconds`
-    - Timeout: `5 seconds`
-    - Healthy threshold: `3`
-    - Unhealthy threshold: `3`
+    - Leave all other settings as default values and click on the Next button.
+    - You will be taken to the `Register targets` page. Select your instance and click on the `Include as pending below` button.
+    - Finally click on the large orange button on the bottom right that says `Create target group`
 
-## Step 3: Create an Application Load Balancer
+## Step 3: Create a Security Group for the Load Balancer
+
+You will have two separate security groups: one for your EC2 instance and one for your Load Balancer.
+
+- 1. **Create a Security Group**:
+    - In your AWS console, search for "Security Groups" and then click "Create security group".
+    - Set the Security group name to sgLbWebServerAuto
+    - For Descrition put "Sg for Lb"
+    - Add one inbound rule for HTTP (80) and choose Destination as Anywhere-IPv4.
+    - Add one ibnound rule for HTTPS (443) and choose Destination as Anywhere-IPv4.
+    - Finally click Create security group
+
+## Step 4: Create an Application Load Balancer
 
 1. **Create a Load Balancer**:
-    - In Elastic Load Balancing dashboard, click on "Load balancers" and then "Create load balancer".
-    - Choose "Application Load Balancer".
-    - Set the scheme to "internet-facing".
+    - In your AWS console, search for "Load balancers" and then click "Create load balancer".
+    - Cick the Create button under the "Application Load Balancer".
+    - Enter the Load Balancer name as `lbWebServerAuto`.
+    - Set the Scheme to "internet-facing".
+    - Select all 3 eu-west zones under "Availability Zones and subnets"
+    - Select Security Group you created above.
 2. **Configure Listeners**:
+    - Set the Default action oh HTTP port 80 to forward to your target group
+    - Click the Add Listner button
     - Create an HTTPS listener on port `443`.
-    - Select your SSL/TLS certificate from AWS Certificate Manager.
     - Forward traffic to your target group.
+    - Select your certificate from AWS Certificate Manager.
 3. **Add HTTP Listener (Optional)**:
     - Create an HTTP listener on port `80`.
     - Add a rule to redirect all traffic from port `80` (HTTP) to port `443` (HTTPS).
 4. **Select Availability Zones**:
     - Ensure the load balancer is enabled in the same Availability Zone as your EC2 instance.
-
-## Step 4: Configure Security Groups
-
-You should have two separate security groups: one for your EC2 instance and one for your Load Balancer.
-
-- **EC2 Security Group**:
-    - Allow inbound HTTP traffic (port 80) from the Load Balancer security group's ID.
-- **Load Balancer Security Group**:
-    - Allow inbound HTTP (80) and HTTPS (443) traffic from anywhere (`0.0.0.0/0`).
-
 
 ## Step 5: Update A Records in Hosted Zone
 
