@@ -80,8 +80,9 @@ You will have two separate security groups: one for your EC2 instance and one fo
     - In your AWS console, search for "Security Groups" and then click "Create security group".
     - Set the Security group name to sgLbWebServerAuto
     - For Descrition put "Sg for Lb"
-    - Add one inbound rule for HTTP (80) and choose Destination as Anywhere-IPv4.
-    - Add one ibnound rule for HTTPS (443) and choose Destination as Anywhere-IPv4.
+    - Add one **inbound** rule for HTTP (80) and choose Destination as Anywhere-IPv4.
+    - Add one **inbound** rule for HTTPS (443) and choose Destination as Anywhere-IPv4.
+    - Add one **outbound** rule for All traffic and choose Destination as Anywhere-IPv4.
     - Finally click Create security group
 
 ## Step 4: Create an Application Load Balancer
@@ -106,11 +107,8 @@ You will have two separate security groups: one for your EC2 instance and one fo
     - Go to Actions and select Edit rule
     - Select Redirect to URL.
     - Beside HTTPS enter Port 443 and click Save changes.
-      
-4. **Select Availability Zones**:
-    - Ensure the load balancer is enabled in the same Availability Zone as your EC2 instance.
 
-## Step 5: Update A Records in Hosted Zone
+## Step 5: Create A Record in Hosted Zone
 
 ### Point Domain Name to Load Balancer
 
@@ -119,11 +117,12 @@ You will have two separate security groups: one for your EC2 instance and one fo
 2. **Select Your Hosted Zone**:
     - Choose the hosted zone corresponding to your domain name.
 3. **Create or Update A Records**:
-    - Click "Create record set" or edit existing A record.
-    - Set **Name** as your domain name (e.g., `randombusiness.tech`) or subdomain.
-    - Set **Type** as A – IPv4 address.
-    - Set **Alias** as "Yes".
-    - Select your load balancer's DNS name in the Alias target dropdown.
+    - Click "Create record"
+    - Turn on the Alias switch
+    - Choose endpoint as "Alias to Application and Classic Load Balancer"
+    - Choose region as Europe (Ireland)
+    - Choose load balancer as the load balancer you created above. There will only be one option in the dropdown. 
+    - Click "Create records"
 4. **Save Changes**:
     - Click "Create records" or "Save changes".
 
