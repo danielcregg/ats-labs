@@ -54,18 +54,21 @@ Go to your Domain Name Provider website and change the DNS servers to the ones p
     - Enter your domain name e.g. `example.com`
     - Select DNS validation then hit the Request button. 
 4. **Wait for Certificate Issuance**:
-    - The certificate status will be `Pending validtion`. Wait 3 minutes for the status to change to Approved
-    - Once validated, AWS will issue your certificate.
+    - The certificate status will be `Pending validtion`.
+    - To get your Certificate approved, click on the `Create records in Route 53` button.
+    - Select your Domain name and click on the `Create records` button. A CNAME record will be added to youe Hosted Zone and this will validate your certificate. 
+    - Wait 5 minutes for your Certificate Status to change to `Issued`
 
 ## Step 2: Create a Target Group
 
-1. **Navigate to Elastic Load Balancing**:
-    - In the AWS Management Console, go to the Elastic Load Balancing service.
+1. **Navigate to Target groups**:
+    - In the AWS Management Console, search for Target groups service.
 2. **Create a Target Group**:
-    - Click on "Target groups" and then "Create target group".
+    - Click on "Create target group".
     - Choose "Instances" as the target type.
-    - Set the protocol to HTTP and port to 80 (or your web server's port).
-    - Select your EC2 instance.
+    - Enter the Target group name as `tgWebServerAuto`.
+    - The protocol port should be set to HTTP and port to 80.
+    - Leave all other settings as default values and click on the Next button. 
 3. **Configure Health Checks**:
     - Health check protocol: HTTP
     - Path: `/` (or any path returning HTTP status code `200`)
