@@ -123,34 +123,19 @@ You will have two separate security groups: one for your EC2 instance and one fo
     - Choose region as Europe (Ireland)
     - Choose load balancer as the load balancer you created above. There will only be one option in the dropdown. 
     - Click "Create records"
-4. **Save Changes**:
-    - Click "Create records" or "Save changes".
-
-### Using AWS CLI
-
-Replace `ZONE_ID` and DNS names accordingly:
-
+    - 
+## Step 6: Update the WordPress Address and Site Address 
+Ssh into your instance:
 ```bash
-aws route53 change-resource-record-sets \
---hosted-zone-id ZONE_ID \
---change-batch '{
-    "Changes": [{
-        "Action": "UPSERT",
-        "ResourceRecordSet": {
-            "Name": "randombusiness.tech",
-            "Type": "A",
-            "AliasTarget": {
-                "DNSName": "lbWebServerAuto-1810038198.eu-west-1.elb.amazonaws.com",
-                "HostedZoneId": "Z32O12XQLNTSW2",
-                "EvaluateTargetHealth": false
-            }
-        }
-    }]
-}'
+ssh vm
+```
+Issue the following WordPress CLI commands to change the URLs:
+```bash
+wp option update siteurl 'http://example.com'  --path=/var/www/html/
+wp option update home 'http://example.com' --path=/var/www/html/ 
 ```
 
-
-## Step 6: Test Your Setup
+## Step 7: Test Your Setup
 
 ### Verify HTTPS Connection
 
