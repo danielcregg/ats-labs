@@ -2,20 +2,21 @@
 
 ## Table of Contents
 
-[Objective](#objective)  
-[Architecture Overview](#architecture-overview)  
-[Prerequisites](#prerequisites)  
-[Step 1: Obtain an SSL/TLS Certificate](#step-1-obtain-an-ssltls-certificate)  
-[Step 2: Create a Target Group](#step-2-create-a-target-group)  
-[Step 3: Create an Application Load Balancer](#step-3-create-an-application-load-balancer)  
-[Step 4: Configure Security Groups](#step-4-configure-security-groups)  
-[Step 5: Update A Records in Hosted Zone](#step-5-update-a-records-in-hosted-zone)  
-[Step 6: Test Your Setup](#step-6-test-your-setup)  
-[Step 7: Update WordPress Configuration (If Applicable)](#step-7-update-wordpress-configuration-if-applicable)  
-[Conclusion](#conclusion)  
-[Additional Tips](#additional-tips)  
-[Total Diagram](#total-diagram)  
+1. [Objective](#objective)
+2. [Architecture Overview](#architecture-overview)
+3. [Prerequisites](#prerequisites)
+4. [Step 1: Obtain an SSL/TLS Certificate](#step-1-obtain-an-ssltls-certificate)
+5. [Step 2: Create a Target Group](#step-2-create-a-target-group)
+6. [Step 3: Create a Security Group for the Load Balancer](#step-3-create-a-security-group-for-the-load-balancer)
+7. [Step 4: Create an Application Load Balancer](#step-4-create-an-application-load-balancer)
+8. [Step 5: Create A Record in Hosted Zone](#step-5-create-a-record-in-hosted-zone)
+9. [Step 6: Update the WordPress Address and Site Address](#step-6-update-the-wordpress-address-and-site-address)
+10. [Step 7: Test Your Setup](#step-7-test-your-setup)
+11. [Conclusion](#conclusion)
+12. [Additional Tips](#additional-tips)
+13. [Total Diagram](#total-diagram)
 
+Would you like me to update the file for you?
 ## Objective
 Configure an AWS Application Load Balancer with HTTPS certificates and targets to serve an EC2 instance hosting a web application.
 
@@ -29,7 +30,6 @@ graph TD
     ACM[AWS Certificate Manager] --> ALB
     Route53[AWS Route 53 DNS] --> ALB
 ```
-
 
 ## Prerequisites
 
