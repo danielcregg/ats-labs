@@ -140,17 +140,9 @@ wp option update home 'https://example.com' --path=/var/www/html/
 ### Verify HTTPS Connection
 
 1. **Access Your Website**:
-    - Use your domain name or load balancer's DNS name over HTTPS.
+    - Go to a browser and enter your domin name. See if you hit your website.
 2. **Verify Certificate**:
-    - Confirm that SSL/TLS certificate is correctly applied and trusted by browsers.
-
-## Step 7: Update WordPress Configuration (If Applicable)
-
-### Update Site URLs
-
-1. **Access WordPress Admin Dashboard**.
-2. Navigate to **Settings > General**.
-3. Update both **WordPress Address (URL)** and **Site Address (URL)** fields with HTTPS URLs.
+    - Confirm that your site is secure and using https
 
 ## Conclusion
 
