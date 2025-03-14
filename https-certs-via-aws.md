@@ -36,6 +36,7 @@ graph TD
 - An existing EC2 instance running a web server.
 - A registered domain name.
 
+Go to route 53 and create hosted zone for your domain name e.g. example.com
 
 ## Step 1: Obtain an SSL/TLS Certificate
 
@@ -43,13 +44,16 @@ graph TD
 
 - Choose **"Request a certificate"** if you want AWS to manage your certificate automatically.
 
-1. **Navigate to AWS Certificate Manager**:
-    - Go to the AWS Management Console and select the AWS Certificate Manager service.
-2. **Request Certificate**:
-    - Follow the wizard to request or import a certificate for your domain.
+1. **On your AWS Console Search for `Certificate Manager`**:
+    - Go to the AWS Management Console and select the Certificate Manager service.
+2. **Request Public Certificate**:
+    - Click on the orange Request button in the top right hand corner.
+    - Select `Request a public certificate` and click the Next button. 
 3. **Validate Domain Ownership**:
-    - Use email validation or DNS validation to prove domain ownership.
+    - Enter your domain name e.g. `example.com`
+    - Select DNS validation then hit the Request button. 
 4. **Wait for Certificate Issuance**:
+    - The certificate status will be `Pending validtion`. Wait 3 minutes for the status to change to Approved
     - Once validated, AWS will issue your certificate.
 
 ## Step 2: Create a Target Group
