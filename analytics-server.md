@@ -15,7 +15,7 @@ Matomo is an open-source web analytics application. Please note, it was formerly
 These commands will download and extract the latest version of Matomo:
 
 ```bash
-sudo dnf install -y wget unzip httpd mariadb-server php php-mysqlnd php-fpm php-json php-curl php-gd php-cli php-xml php-mbstring
+sudo dnf install -y wget unzip
 sudo systemctl enable --now httpd mariadb
 sudo wget https://builds.matomo.org/matomo.zip -P ~
 sudo unzip -o ~/matomo.zip -d /var/www/html
