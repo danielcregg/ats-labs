@@ -64,7 +64,7 @@ exit;
 Browse to your server by going to:
 
 ```
-http://yourserverIP/matomo
+https://yourwebsiteaddress/matomo
 ```
 
 Click *Next* and you will run through the system check. Everything should pass; if not, make sure LAMP is properly installed and configured.
