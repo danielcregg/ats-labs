@@ -41,7 +41,7 @@ sudo systemctl restart httpd
 Now we need to create a database for our analytics server. We will call the database `matomodb`. Run the following commands exactly, **one command at a time**:
 
 ```bash
-sudo mysql -u root -p
+sudo mysql
 ```
 ```bash
 CREATE DATABASE matomodb;
