@@ -42,10 +42,20 @@ Now we need to create a database for our analytics server. We will call the data
 
 ```bash
 sudo mysql -u root -p
+```
+```bash
 CREATE DATABASE matomodb;
+```
+```bash
 CREATE USER 'matomoadmin'@'localhost' IDENTIFIED BY 'password';
+```
+```bash
 GRANT ALL PRIVILEGES ON matomodb.* TO 'matomoadmin'@'localhost';
+```
+```bash
 FLUSH PRIVILEGES;
+```
+```bash
 exit;
 ```
 
