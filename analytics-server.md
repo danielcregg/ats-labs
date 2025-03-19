@@ -83,8 +83,12 @@ Read the below page untick the boxes and hit “Continue to Matomo”.
 ![alt text](image-7.png)
 ## Logging In
 
-Finally, log in with your super user account.
+Log in with your super user account using username as **admin** and your password.
 ![alt text](image-8.png)
+Next Click on the **INSTALL WITH WORDPRESS** button.
+![alt text](image-21.png)
+Follow the instructions that appear:
+![alt text](image-22.png)
 ## WordPress Plugin Installation
 
 Next, go to the *Plugins* section on your WordPress dashboard and install the **WP-Matomo** plugin. Click *Install Now*, wait for the *Install Now* text to change to *Activate*, then click *Activate*.
