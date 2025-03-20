@@ -12,25 +12,45 @@ Matomo is an open-source web analytics application. Please note, it was formerly
 
 ## Downloading and Unzipping Matomo
 
-These commands will download and extract the latest version of Matomo:
+First, update your system packages to ensure you have the latest versions:
 
 ```bash
 sudo dnf update
+```
+
+Install the required tools for downloading and extracting Matomo:
+
+```bash
 sudo dnf install -y wget unzip
+```
+
+Download the latest version of Matomo:
+
+```bash
 sudo wget https://builds.matomo.org/matomo.zip -P ~
+```
+
+Extract the downloaded Matomo zip file to your web server directory:
+
+```bash
 sudo unzip -o ~/matomo.zip -d /var/www/html
 ```
 
 ## Assigning Permissions
 
-The command above created a new directory inside `/var/www/html/`. Now we need to give the appropriate permissions to that directory:
+Set the appropriate ownership for the Matomo directory:
 
 ```bash
 sudo chown -R apache:apache /var/www/html/matomo
+```
+
+Set the required permissions for the temporary directory:
+
+```bash
 sudo chmod -R 0755 /var/www/html/matomo/tmp
 ```
 
-You will now need to restart Apache:
+Restart the Apache web server to apply the changes:
 
 ```bash
 sudo systemctl restart httpd
@@ -40,28 +60,45 @@ sudo systemctl restart httpd
 
 Now we need to create a database for our analytics server. We will call the database `matomodb`. Run the following commands exactly, **one command at a time**:
 
+First, access the MySQL command line interface:
+
 ```bash
 sudo mysql
 ```
+
+Create a new database for Matomo:
+
 ```bash
 CREATE DATABASE matomodb;
 ```
+
+Create a database user for Matomo:
+
 ```bash
 CREATE USER 'matomoadmin'@'localhost' IDENTIFIED BY 'password';
 ```
+
+Grant all privileges on the Matomo database to the user:
+
 ```bash
 GRANT ALL PRIVILEGES ON matomodb.* TO 'matomoadmin'@'localhost';
 ```
+
+Apply the privilege changes:
+
 ```bash
 FLUSH PRIVILEGES;
 ```
+
+Exit the MySQL command line:
+
 ```bash
 exit;
 ```
 
 ## Configuration via GUI
 
-Browse to your server by going to:
+Browse to your matomo server dashboard by going to:
 
 ```
 https://yourwebsiteaddress/matomo
@@ -79,7 +116,7 @@ Now we need to add our website. Fill out the following fields.
 ![alt text](image-5.png)
 Finally, read through the setup summary, untick the unnecessary boxes, and hit *Continue to Matomo*.
 ![alt text](image-6.png)
-Read the below page untick the boxes and hit “Continue to Matomo”. 
+Read the below page untick the boxes and hit "Continue to Matomo". 
 ![alt text](image-7.png)
 ## Logging In
 
@@ -137,13 +174,45 @@ You have installed Matomo on your Amazon Linux 2023 web server and configured th
 
 If you are having issues, delete the database and database users and start again. **DO NOT RUN THE FOLLOWING COMMANDS IF EVERYTHING IS WORKING**:
 
+Access the MySQL command line as the root user:
+
 ```bash
-sudo mysql -u root -p
+sudo mysql
+```
+
+View all MySQL users:
+
+```bash
 SELECT User FROM mysql.user;
+```
+
+Delete the Matomo database user:
+
+```bash
 DROP USER 'matomoadmin'@'localhost';
+```
+
+List all databases:
+
+```bash
 SHOW DATABASES;
+```
+
+Delete the Matomo database:
+
+```bash
 DROP DATABASE matomodb;
+```
+
+Apply the privilege changes:
+
+```bash
 FLUSH PRIVILEGES;
+```
+
+Exit the MySQL command line:
+
+```bash
 exit;
 ```
 
