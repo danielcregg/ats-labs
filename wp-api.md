@@ -1,7 +1,3 @@
-Yes! OpenWeather offers a free API key with limited requests per minute, making it ideal for this lab. Here’s the detailed step-by-step guide using Galway instead of Dublin.  
-
----
-
 ## **Lab: Integrating OpenWeather API with WordPress**  
 **Goal:** Fetch weather data from the OpenWeather API and display it on a WordPress page using a shortcode.  
 
