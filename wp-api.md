@@ -14,7 +14,7 @@
 3.  Click on the **Functions (PHP)** tab
 4.  Copy and paste the following PHP code into the text box supplied:
 
-    ```php
+```php
 function display_favqs_quote_gutenberg() {
     $api_url = 'https://favqs.com/api/qotd'; // FavQs API URL
     
@@ -42,10 +42,9 @@ function display_favqs_quote_gutenberg() {
     }
 }
 add_shortcode('favqs_quote', 'display_favqs_quote_gutenberg');
-    ```
-
-5.  Make sure the snippet is set to "Run snippet everywhere" on your site.
-6.  Scroll to the bottom of the page and click **Save Changes and Activate**.
+```
+6.  Make sure the snippet is set to "Run snippet everywhere" on your site.
+7.  Scroll to the bottom of the page and click **Save Changes and Activate**.
 
 ## Step 3: Create a WordPress Page and Add the Shortcode
 
