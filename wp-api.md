@@ -58,9 +58,8 @@
 
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6c41c1aa-36ae-459a-ac3d-088dc34d87ac" 
-       alt="Code Snippets Plugin" 
-       style="border: 1px solid black; padding: 2px; border-radius: 3px;">
-  <p><em>Code Snippets Plugin</em></p>
+  <img src="https://github.com/user-attachments/assets/6c41c1aa-36ae-459a-ac3d-088dc34d87ac"
+       alt="Code Snippets Plugin"
+       style="border: 10px solid black; padding: 2px; border-radius: 3px;">
 </div>
 
