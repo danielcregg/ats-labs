@@ -54,4 +54,13 @@
 ## Step 4: View the Page
 
 * Visit the page you just created.
-* You should see the quote of the day and its author, styled as a blockquote.
+* You should see the quote of the day and its author, styled as a blockquote, Example below:
+
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/6c41c1aa-36ae-459a-ac3d-088dc34d87ac" 
+       alt="Code Snippets Plugin" 
+       style="border: 1px solid black; padding: 2px; border-radius: 3px;">
+  <p><em>Code Snippets Plugin</em></p>
+</div>
+
