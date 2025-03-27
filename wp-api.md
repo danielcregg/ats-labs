@@ -51,7 +51,7 @@ add_shortcode('favqs_quote', 'display_favqs_quote_gutenberg');
 1.  Log in to your WordPress Admin Dashboard.
 2.  Navigate to **Pages > Add New**.
 3.  Give your page a title (e.g., "Quote of the Day").
-4.  In the Gutenberg editor, add a "Shortcode" block.
+4.  Add a "Shortcode" block.
 5.  Enter the shortcode: `[favqs_quote]`
 6.  Click **Publish**.
 
