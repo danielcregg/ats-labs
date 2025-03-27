@@ -63,3 +63,8 @@
        style="border: 10px solid black; padding: 2px; border-radius: 3px;">
 </div>
 
+## Step 5: Add your own api on a new page
+
+1. Go to https://github.com/public-apis/public-apis and search for a free open api.
+2. Integrate this api into a new page on wordpress. 
+
