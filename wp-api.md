@@ -12,7 +12,7 @@
 1.  In your WordPress admin menu, go to **Snippets > Add New**.
 2.  Give your snippet a title (e.g., "Display FavQs Quote").
 3.  Click on the **Functions (PHP)** tab
-4.  Copy the following PHP code:
+4.  Copy and paste the following PHP code into the text box supplied:
 
     ```php
     function display_favqs_quote_gutenberg() {
@@ -39,14 +39,10 @@
     add_shortcode('favqs_quote', 'display_favqs_quote_gutenberg');
     ```
 
-2.  Paste the code into the code editor within the Code Snippets plugin.
+5.  Make sure the snippet is set to "Run snippet everywhere" on your site.
+6.  Scroll to the bottom of the page and click **Save Changes and Activate".
 
-## Step 4: Save and Activate the Snippet
-
-1.  Make sure the snippet is set to run "Everywhere" on your site.
-2.  Save and activate the snippet.
-
-## Step 5: Create a WordPress Page and Add the Shortcode
+## Step 3: Create a WordPress Page and Add the Shortcode
 
 1.  Log in to your WordPress Admin Dashboard.
 2.  Navigate to **Pages > Add New**.
@@ -55,7 +51,7 @@
 5.  Enter the shortcode: `[favqs_quote]`
 6.  Click **Publish**.
 
-## Step 6: View the Page
+## Step 4: View the Page
 
 * Visit the page you just created.
 * You should see the quote of the day and its author, styled as a blockquote.
