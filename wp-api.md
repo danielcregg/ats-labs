@@ -15,28 +15,33 @@
 4.  Copy and paste the following PHP code into the text box supplied:
 
     ```php
-    function display_favqs_quote_gutenberg() {
-        $api_data = do_shortcode("[wpgetapi_endpoint api_id='fav_q' endpoint_id='fav_q_endpoint' raw='true']");
+function display_favqs_quote_gutenberg() {
+    $api_url = 'https://favqs.com/api/qotd'; // FavQs API URL
     
-        // Decode the JSON data
-        $quote_data = json_decode($api_data, true);
+    $response = wp_remote_get($api_url);
     
-        if (is_array($quote_data) && isset($quote_data['quote']['body'])) {
-            $quote_text = $quote_data['quote']['body'];
-            $author = $quote_data['quote']['author']; // Get the author
-    
-            // Output the quote within a styled block (using a standard paragraph and cite)
-            $output = "<div class='wp-block-quote'>";
-            $output .= "<p>$quote_text</p>";
-            $output .= "<cite>&mdash; $author</cite>"; // Display the author
-            $output .= "</div>";
-    
-            return $output;
-        } else {
-            return "<p>Failed to retrieve quote.</p>";
-        }
+    if (is_wp_error($response)) {
+        return '<p>Failed to retrieve quote.</p>';
     }
-    add_shortcode('favqs_quote', 'display_favqs_quote_gutenberg');
+    
+    $body = wp_remote_retrieve_body($response);
+    $quote_data = json_decode($body, true);
+    
+    if (is_array($quote_data) && isset($quote_data['quote']['body'])) {
+        $quote_text = esc_html($quote_data['quote']['body']);
+        $author = esc_html($quote_data['quote']['author']);
+        
+        $output = "<div class='wp-block-quote'>";
+        $output .= "<p>$quote_text</p>";
+        $output .= "<cite>&mdash; $author</cite>";
+        $output .= "</div>";
+        
+        return $output;
+    } else {
+        return '<p>Failed to retrieve quote.</p>';
+    }
+}
+add_shortcode('favqs_quote', 'display_favqs_quote_gutenberg');
     ```
 
 5.  Make sure the snippet is set to "Run snippet everywhere" on your site.
