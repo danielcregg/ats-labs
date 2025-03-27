@@ -11,10 +11,8 @@
 
 1.  In your WordPress admin menu, go to **Snippets > Add New**.
 2.  Give your snippet a title (e.g., "Display FavQs Quote").
-
-## Step 3: Paste the Code Snippet
-
-1.  Copy the following PHP code:
+3.  Click on the **Functions (PHP)** tab
+4.  Copy the following PHP code:
 
     ```php
     function display_favqs_quote_gutenberg() {
