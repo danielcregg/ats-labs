@@ -2,12 +2,6 @@
 
 **Goal:** Fetch data from an external API (FavQs) and display it on a WordPress page using a shortcode, compatible with the Gutenberg editor.
 
-### Prerequisites:
-
-* Access to the WordPress admin dashboard
-* A code editor (VS Code, Nano, Vim, etc.)
-* Code Snippets plugin installed and activated.
-
 ## Step 1: Install and Activate the Code Snippets Plugin
 
 1.  Go to your WordPress dashboard, navigate to **Plugins > Add New**.
