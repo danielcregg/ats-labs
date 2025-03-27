@@ -40,7 +40,7 @@
     ```
 
 5.  Make sure the snippet is set to "Run snippet everywhere" on your site.
-6.  Scroll to the bottom of the page and click **Save Changes and Activate".
+6.  Scroll to the bottom of the page and click **Save Changes and Activate**.
 
 ## Step 3: Create a WordPress Page and Add the Shortcode
 
