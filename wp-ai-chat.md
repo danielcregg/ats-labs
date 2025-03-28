@@ -77,8 +77,6 @@ In this lab, you will:
 5. Visit the page to test your AI chatbot
 6. Interact with the chatbot by asking questions or requesting information
 
-![AI Engine Chatbot on Page](img/ai-engine-chatbot-on-page.png)
-
 ### Part 6: Enable site-wide floating chatbot
 
 1. Go to Meow Apps > AI Engine
@@ -108,7 +106,7 @@ In this lab, you will:
 13. Select the chatbot you created earlier
 14. Select the new environment you created in the Environment dropdown
 
-![Environments for AI settings](image.png)
+![Environments for AI settings](img/env-ai-setup.png)
 
 ### Part 8: Advanced AI Applications
 
@@ -139,6 +137,8 @@ Once you have the basic chatbot working, explore these additional AI features:
 3. Use caching options to improve performance
 4. Set appropriate context length to balance quality and costs
 5. Regularly review and refine your prompts for better results
+
+![Performance Optimization](img/ai-engine-performance-optimization.png)
 
 ### Troubleshooting
 
