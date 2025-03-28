@@ -28,57 +28,54 @@ In this lab, you will:
 4. Look for the plugin by "Meow Apps" and click "Install Now"
 5. After installation completes, click "Activate"
 
-![AI Engine Plugin Installation](img/placeholder-ai-engine-install.png)
+![AI Engine Plugin Installation](image.png)
 
 ### Part 2: Setting Up Google AI Studio and Gemini API
 
 1. Visit [Google AI Studio](https://makersuite.google.com/) and sign in with your Google account
-2. Click on "Get API key" in the top right corner
-3. If prompted, accept the terms of service
-4. Create a new API key and copy it to your clipboard
+2. Click on the big blue button that says "Get API key" in the top left corner
+3. Click on the big blue button that says "Create API key"
+4. Select a project and click on the button to create the API key. Copy it to your clipboard
    - Keep this key secure as it grants access to the API
    - Note: Google provides a free tier with limitations, which is sufficient for this lab
 
-![Google AI Studio API Key](img/placeholder-google-ai-studio.png)
+![Google AI Studio API Key](image-1.png)
 
 ### Part 3: Configuring AI Engine with Gemini API
 
-1. In your WordPress admin dashboard, navigate to AI Engine > Settings
+1. In your WordPress admin dashboard, navigate to Meow Apps > AI Engine > Settings
 2. Select the "Gemini" tab in the AI Providers section
 3. Paste your Google API key in the designated field
-4. Select "Gemini Pro" as the model
+4. Select "gemini-2.0-flash " as the model
 4. Click "Save Changes"
 5. Test the connection by clicking the "Test" button
 
-![AI Engine Gemini Configuration](img/placeholder-ai-engine-gemini-config.png)
+![AI Engine Settings](image-2.png)
 
 ### Part 4: Creating Your First AI Chatbot
 
-1. Go to AI Engine > Chatbots
+1. Go to the Chatbots tab 
 2. Click "Add New" to create a new chatbot
 3. Configure the basic settings:
    - Name: "Gemini Assistant"
    - Initial Prompt: "You are a helpful assistant for my website visitors."
-   - Model: Select "Gemini Pro"
+   - Model: Select "gemini-2.0-flash"
 4. Customize the appearance settings:
    - Choose a theme color
    - Set width and height parameters
    - Configure button position
 5. Save your chatbot
 
-![AI Engine Chatbot Creation](img/placeholder-ai-engine-chatbot.png)
+![AI Engine Chatbot Creation](image-3.png)
 
 ### Part 5: Embedding the Chatbot on Your Site
 
-1. After saving your chatbot, you'll see shortcode options
-2. Copy the provided shortcode (e.g., `[mwai_chat id="1"]`)
-3. Edit a page or post where you want the chatbot to appear
-4. Paste the shortcode in the content area
-5. Update/publish the page
-6. Visit the page to test your AI chatbot
+1. Create a new page
+2. Searh for a block alled "AI Chatbot"
+3. Add this to your page
+4. Save and publish your page
+5. Visit the page to test your AI chatbot
 
-Alternative embedding methods:
-- Use the AI Engine block in the block editor
 - Add the chatbot to a widget area via Appearance > Widgets
 - Enable the floating chatbot option for site-wide availability
 
