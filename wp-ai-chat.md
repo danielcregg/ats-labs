@@ -28,7 +28,7 @@ In this lab, you will:
 4. Look for the plugin by "Meow Apps" and click "Install Now"
 5. After installation completes, click "Activate"
 
-![AI Engine Plugin Installation](image.png)
+![AI Engine Plugin Installation](img/ai-engine-plugin-installation.png)
 
 ### Part 2: Setting Up Google AI Studio and Gemini API
 
@@ -39,7 +39,7 @@ In this lab, you will:
    - Keep this key secure as it grants access to the API
    - Note: Google provides a free tier with limitations, which is sufficient for this lab
 
-![Google AI Studio API Key](image-1.png)
+![Google AI Studio API Key](img/google-ai-studio-api-key.png)
 
 ### Part 3: Configuring AI Engine with Gemini API
 
@@ -50,7 +50,7 @@ In this lab, you will:
 4. Click "Save Changes"
 5. Test the connection by clicking the "Test" button
 
-![AI Engine Settings](image-2.png)
+![AI Engine Settings](img/ai-engine-settings.png)
 
 ### Part 4: Creating Your First AI Chatbot
 
@@ -66,7 +66,7 @@ In this lab, you will:
    - Configure button position
 5. Save your chatbot
 
-![AI Engine Chatbot Creation](image-3.png)
+![AI Engine Chatbot Creation](img/ai-engine-chatbot-creation.png)
 
 ### Part 5: Embedding the Chatbot on Your Site
 
@@ -76,7 +76,8 @@ In this lab, you will:
 4. Save and publish your page
 5. Visit the page to test your AI chatbot
 6. Interact with the chatbot by asking questions or requesting information
-![AI Engine Chatbot on Page](image-4.png)
+
+![AI Engine Chatbot on Page](img/ai-engine-chatbot-on-page.png)
 
 ### Part 6: Enable site-wide floating chatbot
 
@@ -84,12 +85,32 @@ In this lab, you will:
 2. Select the "Chatbots" tab
 3. On the right side you will see a dropdown with the name Site-Wide Chatbot
 4. Change this from None to Default
-![Site-Wide Chatbot](image-4.png)
+
+![Site-Wide Chatbot](img/ai-engine-chatbot-on-page.png)
+
 5. Go to your website and refresh the page
 6. You should see a floating chatbot icon on the bottom right corner of your site
 7. Click on the icon to open the chatbot and interact with it
 
-### Part 7: Advanced AI Applications
+### Part 7: Try out different models
+1. Go to OpenRouter website
+2. Create an account
+3. Create an API key
+4. Search for free models and read about them
+5. Go to Meow Apps > AI Engine
+6. Select the Settings tab
+7. Create a new Environments for AI Tab
+8. Give it a name and selet OpenRouter as the Type
+9. Paste the API key you created in OpenRouter
+10. Key pressing the refresh models button until you see the models you want to use
+11. Select the free model you want to use
+12. Go to the Chatbots tab
+13. Select the chatbot you created earlier
+14. Select the new environment you created in the Environment dropdown
+
+![Environments for AI settings](image.png)
+
+### Part 8: Advanced AI Applications
 
 Once you have the basic chatbot working, explore these additional AI features:
 
