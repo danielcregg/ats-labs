@@ -75,11 +75,21 @@ In this lab, you will:
 3. Add this to your page
 4. Save and publish your page
 5. Visit the page to test your AI chatbot
+6. Interact with the chatbot by asking questions or requesting information
+![AI Engine Chatbot on Page](image-4.png)
 
-- Add the chatbot to a widget area via Appearance > Widgets
-- Enable the floating chatbot option for site-wide availability
+### Part 6: Enable site-wide floating chatbot
 
-### Part 6: Advanced AI Applications
+1. Go to Meow Apps > AI Engine
+2. Select the "Chatbots" tab
+3. On the right side you will see a dropdown with the name Site-Wide Chatbot
+4. Change this from None to Default
+![Site-Wide Chatbot](image-4.png)
+5. Go to your website and refresh the page
+6. You should see a floating chatbot icon on the bottom right corner of your site
+7. Click on the icon to open the chatbot and interact with it
+
+### Part 7: Advanced AI Applications
 
 Once you have the basic chatbot working, explore these additional AI features:
 
@@ -92,15 +102,6 @@ Once you have the basic chatbot working, explore these additional AI features:
    - "Create a product description for [product]"
    - "Generate meta descriptions for SEO"
 4. Copy the generated content to use in your posts or pages
-
-![AI Engine Content Generation](img/placeholder-ai-engine-playground.png)
-
-#### Image Analysis (Gemini Pro Vision)
-
-1. In the Playground, switch to "Gemini Pro Vision"
-2. Upload an image using the image icon
-3. Add a prompt like "Describe this image in detail" or "What can you tell me about this product?"
-4. Use the insights for alt text, descriptions, or content ideas
 
 #### Custom Chatbot Personalities
 
