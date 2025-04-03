@@ -24,6 +24,30 @@ In this lab, you will:
 
 ## Lab Steps
 
+```mermaid
+graph TD
+    A[Install AI Engine Plugin] --> B[Create Google AI Studio Account]
+    B --> C[Configure Gemini API Access]
+    C --> D[Create and Configure AI Chatbot]
+    D --> E[Embed Chatbot on WordPress Site]
+    E --> F[Enable Site-Wide Floating Chatbot]
+    F --> G[Try Different Models]
+    G --> H[Explore Advanced AI Applications]
+    H --> I[Optimize Performance and Follow Best Practices]
+
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:4px
+    style C fill:#f99,stroke:#333,stroke-width:4px
+    style D fill:#ccf,stroke:#333,stroke-width:4px
+    style E fill:#9f9,stroke:#333,stroke-width:4px
+    style F fill:#ff9,stroke:#333,stroke-width:4px
+    style G fill:#9ff,stroke:#333,stroke-width:4px
+    style H fill:#fc9,stroke:#333,stroke-width:4px
+    style I fill:#9cf,stroke:#333,stroke-width:4px
+```
+
+
+
 ### Part 1: Installing the AI Engine Plugin
 
 1. Log in to your WordPress admin dashboard
