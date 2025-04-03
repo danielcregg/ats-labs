@@ -142,8 +142,6 @@ Once you have the basic chatbot working, explore these additional AI features:
 4. Set appropriate context length to balance quality and costs
 5. Regularly review and refine your prompts for better results
 
-![Performance Optimization](img/ai-engine-performance-optimization.png)
-
 ### Troubleshooting
 
 Common issues and solutions:
