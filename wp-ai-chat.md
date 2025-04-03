@@ -5,11 +5,15 @@ This lab guide will walk you through integrating advanced AI capabilities into y
 ## Overview
 
 In this lab, you will:
-1. Set up the AI Engine plugin in WordPress
-2. Create a Google AI Studio account
-3. Configure Gemini API access credentials
-4. Implement AI-powered features on your WordPress site
-5. Test various AI functionalities
+1. [Set up the AI Engine plugin in WordPress](#part-1-installing-the-ai-engine-plugin)
+2. [Create a Google AI Studio account](#part-2-setting-up-google-ai-studio-and-gemini-api)
+3. [Configure Gemini API access credentials](#part-3-configuring-ai-engine-with-gemini-api)
+4. [Implement AI-powered features on your WordPress site](#part-4-creating-your-first-ai-chatbot)
+5. [Test various AI functionalities](#part-5-embedding-the-chatbot-on-your-site)
+6. [Enable site-wide floating chatbot](#part-6-enable-site-wide-floating-chatbot)
+7. [Try out different models](#part-7-try-out-different-models)
+8. [Explore advanced AI applications](#part-8-advanced-ai-applications)
+9. [Optimize performance and follow best practices](#part-9-performance-optimization-and-best-practices)
 
 ## Prerequisites
 
@@ -71,7 +75,7 @@ In this lab, you will:
 ### Part 5: Embedding the Chatbot on Your Site
 
 1. Create a new page
-2. Searh for a block alled "AI Chatbot"
+2. Search for a block called "AI Chatbot"
 3. Add this to your page
 4. Save and publish your page
 5. Visit the page to test your AI chatbot
@@ -98,9 +102,9 @@ In this lab, you will:
 5. Go to Meow Apps > AI Engine
 6. Select the Settings tab
 7. Create a new Environments for AI Tab
-8. Give it a name and selet OpenRouter as the Type
+8. Give it a name and select OpenRouter as the Type
 9. Paste the API key you created in OpenRouter
-10. Key pressing the refresh models button until you see the models you want to use
+10. Keep pressing the refresh models button until you see the models you want to use
 11. Select the free model you want to use
 12. Go to the Chatbots tab
 13. Select the chatbot you created earlier
@@ -130,7 +134,7 @@ Once you have the basic chatbot working, explore these additional AI features:
    - Technical Support: "You are a technical support specialist who helps users troubleshoot..."
    - Content Advisor: "You are an expert content strategist who provides advice on..."
 
-### Part 7: Performance Optimization and Best Practices
+### Part 9: Performance Optimization and Best Practices
 
 1. Monitor API usage in Google AI Studio dashboard
 2. Implement rate limiting in AI Engine settings to control costs
@@ -150,7 +154,7 @@ Common issues and solutions:
 
 ## Conclusion
 
-In this lab, you've successfully integrated advanced AI capabilities into your WordPress site using the AI Engine plugin and Google's Gemini API. You can now offer your visitors an interactive AI assistant, generate content efficiently, and leverage AI for various site enhancements.
+In this lab, you've successfully integrated advanced AI capabilities into your WordPress site using the AI Engine plugin and Google's Gemini API. You can now offer your visitors an interactive AI assistant and leverage AI for content creation and other website enhancements.
 
 ## Additional Resources
 
@@ -167,4 +171,3 @@ Consider exploring these additional possibilities:
 3. Implementing AI-powered form assistants
 4. Using AI for content translation and localization
 5. Setting up sentiment analysis for comments and user feedback
-
