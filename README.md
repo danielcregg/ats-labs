@@ -101,15 +101,17 @@ tail filename             # Show the last 10 lines of a file
 #### File and Directory Management Flow
 ```mermaid
 graph TD;
-    A[Start] -->|Create Directory| B[mkdir dirname];
-    B -->|Move into Directory| C[cd dirname];
-    C -->|Create File| D[touch filename];
-    D -->|Write to File| D2[echo "Hello" > filename];
-    D2 -->|View File Contents| D3[cat filename];
-    D3 -->|Copy File| E[cp file newfile];
-    E -->|Rename File| F[mv old new];
-    F -->|Remove File| G[rm filename];
-    G -->|Remove Directory| H[rm -r dirname];
+    A[Start] --> B[mkdir dirname];
+    B --> C[cd dirname];
+    C --> D[touch filename];
+    D --> E[echo 'Hello' > filename];
+    E --> F[cat filename];
+    F --> G[cp filename backup];
+    G --> H[mv backup archive];
+    H --> I[rm filename];
+    I --> J[cd ..];
+    J --> K[rm -r dirname];
+    K --> L[End];
 ```
 
 #### Extra Tips:
