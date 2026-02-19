@@ -22,7 +22,7 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 
 ### 1.1 Accessing AWS CloudShell
 
-1. **Log in to the AWS Management Console:**
+1. **Log in to the AWS Management Console:** Go to [https://aws.amazon.com/console/](https://aws.amazon.com/console/) and sign in with your credentials.
 2. **Open CloudShell:** In the top navigation bar, click the CloudShell icon (it looks like a small terminal window). This will open a terminal window within your browser. Alternatively, you can find CloudShell under the "Services" menu by searching for "CloudShell".
 3. **Wait for CloudShell to initialize:** The first time you use CloudShell in a region, it might take a few minutes to set up. Subsequent launches will be faster. You should see a command prompt once CloudShell is ready.
 
@@ -94,7 +94,6 @@ graph LR
     B --> D["Rule 1: Port 22 (SSH/SFTP)"]
     B --> E["Rule 2: Port 80 (HTTP)"]
     B --> F["Rule 3: Port 443 (HTTPS)"]
-    B --> G["Rule 4: Port 3389 (RDP)"]
 ```
 
 ### 3.1 Create the Security Group
@@ -111,7 +110,7 @@ aws ec2 create-tags --resources $SECURITY_GROUP_ID --tags Key=Name,Value=LabSecu
 ```
 
 ### 3.2 Add Inbound Rules
-Add rules to allow SSH (port 22), RDP (port 3389), HTTP (port 80), and HTTPS (port 443) traffic.
+Add rules to allow SSH (port 22), HTTP (port 80), and HTTPS (port 443) traffic.
 
 ```bash
 # SSH and SFTP
@@ -146,16 +145,6 @@ aws ec2 describe-security-groups --group-ids $SECURITY_GROUP_ID
                     "IpProtocol": "tcp",
                     "FromPort": 22,
                     "ToPort": 22,
-                    "IpRanges": [
-                        {
-                            "CidrIp": "0.0.0.0/0"
-                        }
-                    ]
-                },
-                {
-                    "IpProtocol": "tcp",
-                    "FromPort": 3389,
-                    "ToPort": 3389,
                     "IpRanges": [
                         {
                             "CidrIp": "0.0.0.0/0"
@@ -243,7 +232,7 @@ graph LR
 Find the correct AMI ID for Amazon Linux 2023 in your chosen region using this command:
 
 ```bash
-AMI_ID=$(aws ec2 describe-images --owners amazon --filters "Name=name,Values=al2023-ami-2023*-x86_64" "Name=state,Values=available" --query 'Images[*].[ImageId]' --output text | sort -k1 -r | head -n 1)
+AMI_ID=$(aws ec2 describe-images --owners amazon --filters "Name=name,Values=al2023-ami-2023*-x86_64" "Name=state,Values=available" --query 'sort_by(Images, &CreationDate)[-1].ImageId' --output text)
 ```
 
 ### 5.2 Launch the Instance
@@ -261,7 +250,7 @@ INSTANCE_ID=$(aws ec2 run-instances \
     --output text)
 ```
 
-Copy the Instance ID (e.g., `i-0123456789abcdef0`) for later steps.
+The Instance ID is now stored in the `$INSTANCE_ID` variable and will be used in later steps.
 
 ---
 
@@ -302,7 +291,7 @@ eipalloc-0fedcba9876543210
 
 </details>
 
-Copy the Allocation ID (e.g., `eipalloc-0fedcba9876543210`).
+The Allocation ID is now stored in the `$ALLOCATION_ID` variable.
 
 ### 6.2 Associate the Elastic IP with Your Instance
 Associate the Elastic IP with your instance:
@@ -322,7 +311,7 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id $ALLOCATION
 
 </details>
 
-Copy the Association ID (e.g., `eipassoc-0abcdef1234567890`) for troubleshooting if needed.
+Note the Association ID in the output in case you need it for troubleshooting.
 
 ### 6.3 Verify Association (DIY Task)
 1. **Use `aws ec2 describe-instances`** with the `$INSTANCE_ID` to verify the instance details.
@@ -358,7 +347,7 @@ aws ec2 describe-instances --instance-ids $INSTANCE_ID
 ## 7. Connecting to Your Instance
 
 ### Concept Introduction
-Now that your instance is running and has an Elastic IP, you can connect to it via SSH (for Linux instances). (If you're using Windows, you might connect using Remote Desktop.)
+Now that your instance is running and has an Elastic IP, you can connect to it via SSH directly from CloudShell.
 
 ```mermaid
 graph LR
@@ -369,7 +358,13 @@ graph LR
 ```
 
 ### 7.1 Connect via SSH (from CloudShell)
-Since you're already in CloudShell, connect directly without needing to transfer the key pair file. Ensure the key pair file has the correct permissions:
+Since you're already in CloudShell, connect directly without needing to transfer the key pair file. First, retrieve the Elastic IP address into a variable:
+
+```bash
+ELASTIC_IP=$(aws ec2 describe-addresses --filters "Name=tag:Name,Values=LabElasticIP" --query 'Addresses[0].PublicIp' --output text)
+```
+
+Ensure the key pair file has the correct permissions:
 
 ```bash
 chmod 400 LabKeyPair.pem
@@ -517,6 +512,8 @@ These steps ensure that you have cleaned all the resources created during this l
 ## 9. Automated Script Creation with Amazon Q Developer
 
 AWS has a built-in AI assistant called **Amazon Q Developer** that is available directly inside CloudShell. You can use it to ask questions about AWS, generate CLI commands from plain English, and even create entire scripts. In this section, you will use Amazon Q to practice recreating the commands you ran earlier in this lab, and then use it to generate automated scripts.
+
+> **Note:** You deleted all lab resources in section 8. The scripts you create here will re-create those resources, so make sure to run the cleanup in section 9.7 when you are finished.
 
 ### 9.1 Start a Chat with Amazon Q
 
