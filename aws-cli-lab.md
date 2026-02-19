@@ -331,7 +331,7 @@ aws ec2 describe-instances --instance-ids $INSTANCE_ID
             "Instances": [
                 {
                     ...
-                    "PublicIpAddress": "3.14.159.265",  // Your Elastic IP
+                    "PublicIpAddress": "3.14.159.26",  // Your Elastic IP
                     ...
                 }
             ]
@@ -351,7 +351,7 @@ Now that your instance is running and has an Elastic IP, you can connect to it v
 
 ```mermaid
 graph LR
-    A["Your Computer"] --> B["SSH Client"]
+    A["CloudShell"] --> B["SSH Client"]
     B --> C["Elastic IP"]
     C --> D["EC2 Instance (Port 22)"]
     B --> E["Private Key (.pem)"]
@@ -380,18 +380,14 @@ ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@$ELASTIC_IP
 <summary>Example Connection and Output</summary>
 
 ```bash
-ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@3.14.159.265
-The authenticity of host '3.14.159.265 (3.14.159.265)' can't be established.
-ED25519 key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '3.14.159.265' (ED25519) to the list of known hosts.
+ssh -o StrictHostKeyChecking=no -i LabKeyPair.pem ec2-user@3.14.159.26
+Warning: Permanently added '3.14.159.26' (ED25519) to the list of known hosts.
 
        __|  __|_  )
        _|  (     /   Amazon Linux 2023
       ___|\___|___|
 
-[https://aws.amazon.com/linux/amazon-linux-2023/](https://aws.amazon.com/linux/amazon-linux-2023/)
+https://aws.amazon.com/linux/amazon-linux-2023/
 [ec2-user@ip-172-31-42-184 ~]$
 ```
 
@@ -416,7 +412,7 @@ You are now connected to your EC2 instance and can run commands on it.
 [ec2-user@ip-172-31-42-184 ~]$ ls
 [ec2-user@ip-172-31-42-184 ~]$ exit
 logout
-Connection to 3.14.159.265 closed.
+Connection to 3.14.159.26 closed.
 ```
 
 </details>
@@ -490,7 +486,7 @@ aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID
 
 </details>
 
-### 8.4 Delete the Key Pair (Optional)
+### 8.4 Delete the Key Pair
 Delete the key stored on AWS:
 
 ```bash
@@ -499,7 +495,7 @@ aws ec2 delete-key-pair --key-name LabKeyPair
 Delete the key stored on your cloudshell instance:
 
 ```bash
-rm  LabKeyPair.pem
+rm LabKeyPair.pem
 ```
 
 ### 8.5 Confirm Deletion (DIY Task)
