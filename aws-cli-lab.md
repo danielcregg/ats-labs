@@ -14,7 +14,7 @@ This lab introduces you to the Amazon Web Services (AWS) Command Line Interface 
 6.  [Allocating and Associating an Elastic IP](#6-allocating-and-associating-an-elastic-ip)
 7.  [Connecting to Your Instance](#7-connecting-to-your-instance)
 8.  [Clean Up (Important!)](#8-clean-up-important)
-9.  [Automated Script Creation via AI](#9-automated-script-creation-via-ai)
+9.  [Automated Script Creation with Amazon Q Developer](#9-automated-script-creation-with-amazon-q-developer)
 
 ---
 
@@ -514,23 +514,119 @@ rm  LabKeyPair.pem
 
 These steps ensure that you have cleaned all the resources created during this lab.
 
-## 9. Automated Script Creation via AI
+## 9. Automated Script Creation with Amazon Q Developer
 
-Use an AI chat service to create two automated AWS scripts from the content in this lab. One script will create the new instnace and the other will delete it and its resources. 
+AWS has a built-in AI assistant called **Amazon Q Developer** that is available directly inside CloudShell. You can use it to ask questions about AWS, generate CLI commands from plain English, and even create entire scripts. In this section, you will use Amazon Q to practice recreating the commands you ran earlier in this lab, and then use it to generate automated scripts.
 
-### 9.1 Write the prompt
+### 9.1 Start a Chat with Amazon Q
 
-Create a prompt to generate the two scripts. 
-```txt
-Using the content of lab, create two AWS scripts. One script will create the new EC2 instance and the other will delete the instance and associated resources
-```
-
-### 9.2 Save the scripts to your CloudShell instance
-
-Use nano to help create two new bash file to hold your new scripts. Run the following permissions command to make the files executable
+In your CloudShell terminal, start an interactive chat session with Amazon Q:
 
 ```bash
-chmod 777 aws_script_make.sh
+q chat
+```
+
+You should see a chat prompt where you can type natural language questions and instructions. To exit the chat at any time, type `/quit`.
+
+### 9.2 Practice Prompts — Recreating Lab Commands
+
+Try the following prompts inside `q chat` to see how Amazon Q generates the same (or similar) AWS CLI commands you used earlier in this lab. Compare the output with the commands you ran manually.
+
+**Prompt 1 — Security Groups:**
+```txt
+How do I create an EC2 security group called LabSecurityGroup and add inbound rules for SSH, HTTP, and HTTPS?
+```
+
+**Prompt 2 — Key Pairs:**
+```txt
+How do I create an EC2 key pair called LabKeyPair and save the private key to a .pem file?
+```
+
+**Prompt 3 — Launching an Instance:**
+```txt
+How do I find the latest Amazon Linux 2023 AMI ID and launch a t2.micro EC2 instance with it?
+```
+
+**Prompt 4 — Elastic IPs:**
+```txt
+How do I allocate an Elastic IP and associate it with a running EC2 instance?
+```
+
+**Prompt 5 — Clean Up:**
+```txt
+How do I terminate an EC2 instance, release its Elastic IP, and delete the associated security group and key pair?
+```
+
+> **Tip:** Notice how Amazon Q generates CLI commands from your plain English descriptions. Compare these with the commands you ran in sections 3–8 of this lab.
+
+### 9.3 Generate Automated Scripts with Amazon Q
+
+Now use Amazon Q to generate two complete bash scripts — one to create all the resources and one to tear them down. Try the following prompt:
+
+```txt
+Create two bash scripts for me. The first script should create an EC2 security group called LabSecurityGroup with inbound rules for SSH, HTTP, and HTTPS, create a key pair called LabKeyPair, find the latest Amazon Linux 2023 AMI, launch a t2.micro instance, allocate an Elastic IP, and associate it with the instance. The second script should terminate the instance, release the Elastic IP, delete the security group, and delete the key pair. Both scripts should use variables and include error checking.
+```
+
+Review the output carefully. Amazon Q should generate two scripts similar to what you built manually throughout this lab.
+
+### 9.4 Save the Scripts to CloudShell
+
+Exit the Amazon Q chat session:
+
+```txt
+/quit
+```
+
+Create the two script files using `nano` and paste in the scripts that Amazon Q generated:
+
+```bash
+nano create_instance.sh
+```
+
+Paste the creation script, save with `Ctrl+O`, and exit with `Ctrl+X`. Then create the deletion script:
+
+```bash
+nano delete_instance.sh
+```
+
+Paste the deletion script, save and exit.
+
+Make both scripts executable:
+
+```bash
+chmod +x create_instance.sh delete_instance.sh
+```
+
+### 9.5 Test Your Scripts
+
+Run the creation script:
+
+```bash
+./create_instance.sh
+```
+
+Verify that all resources were created successfully by checking the AWS Console or by running:
+
+```bash
+aws ec2 describe-instances --filters "Name=tag:Name,Values=LabInstance" --query 'Reservations[].Instances[].[InstanceId,State.Name,PublicIpAddress]' --output table
+```
+
+When you are finished, run the deletion script to clean up:
+
+```bash
+./delete_instance.sh
+```
+
+### 9.6 DIY Task — Extend the Scripts
+
+Use Amazon Q to improve your scripts. Try prompts like:
+
+```txt
+Update my create_instance.sh script to wait until the instance is in a running state before associating the Elastic IP.
+```
+
+```txt
+Add colour-coded output messages to both scripts so I can easily see which steps succeeded or failed.
 ```
 
 ---
