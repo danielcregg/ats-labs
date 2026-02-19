@@ -629,4 +629,47 @@ Update my create_instance.sh script to wait until the instance is in a running s
 Add colour-coded output messages to both scripts so I can easily see which steps succeeded or failed.
 ```
 
+### 9.7 Clean Up (Important!)
+
+Before finishing, make sure all resources created during this section have been deleted. Run the deletion script if you have not already done so:
+
+```bash
+./delete_instance.sh
+```
+
+Then verify that nothing remains by running the following checks:
+
+```bash
+# Check no LabInstance instances are running
+aws ec2 describe-instances --filters "Name=tag:Name,Values=LabInstance" --query 'Reservations[].Instances[].[InstanceId,State.Name]' --output table
+
+# Check no LabElasticIP addresses are allocated
+aws ec2 describe-addresses --filters "Name=tag:Name,Values=LabElasticIP" --output table
+
+# Check no LabSecurityGroup exists
+aws ec2 describe-security-groups --filters "Name=group-name,Values=LabSecurityGroup" --output table
+
+# Check no LabKeyPair exists
+aws ec2 describe-key-pairs --filters "Name=key-name,Values=LabKeyPair" --output table
+```
+
+All four commands above should return empty results. If any resources still exist, delete them manually:
+
+```bash
+# Terminate any remaining instance
+aws ec2 terminate-instances --instance-ids <instance-id>
+
+# Disassociate and release any remaining Elastic IP
+aws ec2 disassociate-address --association-id <association-id>
+aws ec2 release-address --allocation-id <allocation-id>
+
+# Delete any remaining security group
+aws ec2 delete-security-group --group-name LabSecurityGroup
+
+# Delete any remaining key pair
+aws ec2 delete-key-pair --key-name LabKeyPair
+```
+
+> **Warning:** You will be charged for any AWS resources left running. Always confirm that all resources are fully deleted before closing CloudShell.
+
 ---
