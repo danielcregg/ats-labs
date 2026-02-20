@@ -74,9 +74,9 @@ graph TD
 1. In your WordPress admin dashboard, navigate to Meow Apps > AI Engine > Settings
 2. Select the "Gemini" tab in the AI Providers section
 3. Paste your Google API key in the designated field
-4. Select "gemini-2.0-flash " as the model
-4. Click "Save Changes"
-5. Test the connection by clicking the "Test" button
+4. Select "gemini-2.0-flash" as the model
+5. Click "Save Changes"
+6. Test the connection by clicking the "Test" button
 
 ![AI Engine Settings](img/ai-engine-settings.png)
 

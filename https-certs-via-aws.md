@@ -16,7 +16,6 @@
 12. [Additional Tips](#additional-tips)
 13. [Total Diagram](#total-diagram)
 
-Would you like me to update the file for you?
 ## Objective
 Configure an AWS Application Load Balancer with HTTPS certificates and targets to serve an EC2 instance hosting a web application.
 
@@ -54,9 +53,9 @@ Go to your Domain Name Provider website and change the DNS servers to the ones p
     - Enter your domain name e.g. `example.com`
     - Select DNS validation then hit the Request button. 
 4. **Wait for Certificate Issuance**:
-    - The certificate status will be `Pending validtion`.
+    - The certificate status will be `Pending validation`.
     - To get your Certificate approved, click on the `Create records in Route 53` button.
-    - Select your Domain name and click on the `Create records` button. A CNAME record will be added to youe Hosted Zone and this will validate your certificate. 
+    - Select your Domain name and click on the `Create records` button. A CNAME record will be added to your Hosted Zone and this will validate your certificate. 
     - Wait 5 minutes for your Certificate Status to change to `Issued`.
 
 ## Step 2: Create a Target Group
@@ -79,7 +78,7 @@ You will have two separate security groups: one for your EC2 instance and one fo
 - 1. **Create a Security Group**:
     - In your AWS console, search for "Security Groups" and then click "Create security group".
     - Set the Security group name to sgLbWebServerAuto
-    - For Descrition put "Sg for Lb"
+    - For Description put "Sg for Lb"
     - Add one **inbound** rule for HTTP (80) and choose Destination as Anywhere-IPv4.
     - Add one **inbound** rule for HTTPS (443) and choose Destination as Anywhere-IPv4.
     - Add one **outbound** rule for All traffic and choose Destination as Anywhere-IPv4.
@@ -89,22 +88,22 @@ You will have two separate security groups: one for your EC2 instance and one fo
 
 1. **Create a Load Balancer**:
     - In your AWS console, search for "Load balancers" and then click "Create load balancer".
-    - Cick the Create button under the "Application Load Balancer".
+    - Click the Create button under the "Application Load Balancer".
     - Enter the Load Balancer name as `lbWebServerAuto`.
     - Set the Scheme to "internet-facing".
     - Select all 3 eu-west zones under "Availability Zones and subnets"
     - Select Security Group you created above.
 2. **Configure Listeners**:
-    - Set the Default action oh HTTP port 80 to forward to your target group
-    - Click the Add Listner button
+    - Set the Default action of HTTP port 80 to forward to your target group
+    - Click the Add Listener button
     - Create an HTTPS listener on port `443`.
     - Forward traffic to your target group.
     - Select your certificate from AWS Certificate Manager.
     - Scroll to the bottom of the page and click the Save button.  
 3. **Redirect HTTP to HTTPS**:
-    - Find Listners and Rules
+    - Find Listeners and Rules
     - Click on the rule for HTTP:80
-    - Select the rule under Listner Rules
+    - Select the rule under Listener Rules
     - Go to Actions and select Edit rule
     - Select Redirect to URL.
     - Beside HTTPS enter Port 443 and click Save changes.
@@ -124,7 +123,7 @@ You will have two separate security groups: one for your EC2 instance and one fo
     - Choose region as Europe (Ireland)
     - Choose load balancer as the load balancer you created above. There will only be one option in the dropdown. 
     - Click "Create records"
-    - 
+
 ## Step 6: Update the WordPress Address and Site Address 
 Ssh into your instance:
 ```bash
@@ -141,7 +140,7 @@ wp option update home 'https://example.com' --path=/var/www/html/
 ### Verify HTTPS Connection
 
 1. **Access Your Website**:
-    - Go to a browser and enter your domin name. See if you hit your website.
+    - Go to a browser and enter your domain name. See if you hit your website.
 2. **Verify Certificate**:
     - Confirm that your site is secure and using https
 
